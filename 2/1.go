@@ -17,26 +17,15 @@ type Rat struct {
 
 func makeRat(n int, d int) Rat {
   // check if fraction is negative and remove negatives
-  isNeg := false
-  if (n < 0 && d < 0) {
-    isNeg = false
-    n *= -1
-    d *= -1
-  } else if (n < 0) {
-    isNeg = true
-    n *= -1
-  } else if (d < 0) {
-    isNeg = true
-    d *= -1
-  }
+  neg, n, d := isNeg(n, d)
 
   // find greatest common divisor
   comDiv := gcd(n, d)
   n = n / comDiv
   d = d / comDiv
 
-  // readd negative to numerator
-  if (isNeg) {
+  // if negative, add negative to numerator
+  if (neg) {
     n *= -1
   }
 
@@ -92,4 +81,17 @@ func gcd(a int, b int) int {
     return a
   }
   return gcd(b, a % b)
+}
+
+func isNeg(n int, d int) (bool, int, int) {
+  neg := false
+  if (n < 0) {
+    n *= -1
+    neg = !neg
+  }
+  if (d < 0) {
+    d *= -1
+    neg = !neg
+  }
+  return neg, n, d
 }
