@@ -11,7 +11,7 @@ func main() {
   fmt.Println(equalRat(oneThird, oneHalf))
 }
 
-func makeRat(n int, d int) Rat {
+func makeRat(n, d int) Rat {
   // check if fraction is negative and remove negatives
   neg, n, d := isNeg(n, d)
 
@@ -28,31 +28,31 @@ func makeRat(n int, d int) Rat {
   return Rat{n, d}
 }
 
-func addRat(x Rat, y Rat) Rat {
+func addRat(x, y Rat) Rat {
   thisNumer := (x.numer * y.denom) + (x.denom * y.numer)
   thisDenom := x.denom * y.denom
   return makeRat(thisNumer, thisDenom)
 }
 
-func subRat(x Rat, y Rat) Rat {
+func subRat(x, y Rat) Rat {
   thisNumer := (x.numer * y.denom) - (x.denom * y.numer)
   thisDenom := x.denom * y.denom
   return makeRat(thisNumer, thisDenom)
 }
 
-func mulRat(x Rat, y Rat) Rat {
+func mulRat(x, y Rat) Rat {
   thisNumer := x.numer * y.numer
   thisDenom := x.denom * y.denom
   return makeRat(thisNumer, thisDenom)
 }
 
-func divRat(x Rat, y Rat) Rat {
+func divRat(x, y Rat) Rat {
   thisNumer := x.numer * y.denom
   thisDenom := x.denom * y.numer
   return makeRat(thisNumer, thisDenom)
 }
 
-func equalRat(x Rat, y Rat) bool {
+func equalRat(x, y Rat) bool {
   if (x.numer == y.numer && x.denom == y.denom) {
     return true
   }
@@ -72,14 +72,14 @@ func denom(x Rat) int {
 }
 
 // Euclid's Algorithm
-func gcd(a int, b int) int {
+func gcd(a, b int) int {
   if (b == 0) {
     return a
   }
   return gcd(b, a % b)
 }
 
-func isNeg(n int, d int) (bool, int, int) {
+func isNeg(n, d int) (bool, int, int) {
   neg := false
   if (n < 0) {
     n *= -1

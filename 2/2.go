@@ -20,7 +20,7 @@ func midPointSegment(z Line) Point {
   return Point{x, y}
 }
 
-func makeSegment(a Point, b Point) Line {
+func makeSegment(a, b Point) Line {
   return Line{a, b}
 }
 
@@ -32,7 +32,7 @@ func endSegment(z Line) Point {
   return z.end
 }
 
-func makePoint(x int, y int) Point {
+func makePoint(x, y int) Point {
   return Point{x, y}
 }
 
