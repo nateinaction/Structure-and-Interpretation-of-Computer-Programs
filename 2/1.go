@@ -11,10 +11,6 @@ func main() {
   fmt.Println(equalRat(oneThird, oneHalf))
 }
 
-type Rat struct {
-    numer, denom int
-}
-
 func makeRat(n int, d int) Rat {
   // check if fraction is negative and remove negatives
   neg, n, d := isNeg(n, d)
@@ -30,14 +26,6 @@ func makeRat(n int, d int) Rat {
   }
 
   return Rat{n, d}
-}
-
-func numer(x Rat) int {
-  return x.numer
-}
-
-func denom(x Rat) int {
-  return x.denom
 }
 
 func addRat(x Rat, y Rat) Rat {
@@ -75,6 +63,14 @@ func printRat(x Rat) {
    fmt.Printf("%d/%d\n", x.numer, x.denom)
 }
 
+func numer(x Rat) int {
+  return x.numer
+}
+
+func denom(x Rat) int {
+  return x.denom
+}
+
 // Euclid's Algorithm
 func gcd(a int, b int) int {
   if (b == 0) {
@@ -94,4 +90,8 @@ func isNeg(n int, d int) (bool, int, int) {
     neg = !neg
   }
   return neg, n, d
+}
+
+type Rat struct {
+    numer, denom int
 }
